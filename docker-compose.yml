@@ -1,0 +1,14 @@
+version: "2"
+
+services:
+
+  converter:
+    image: soulteary/lognormalizer-with-datapatcher:2.0.6
+    container_name: lognormalizer
+    command: tail -f /etc/hostname
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./logs:/logs
+    tmpfs:
+      - /cache
