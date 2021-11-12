@@ -14,12 +14,13 @@ func main() {
 	scanner := bufio.NewScanner(os.Stdin)
 	for scanner.Scan() {
 		src := scanner.Text()
+		dest := ""
 		for i, monthLabel := range monthLabels {
 			if strings.Contains(src, monthLabel) {
-				dest := strings.Replace(src, monthLabel, monthValues[i], -1)
-				fmt.Println(dest)
+				dest = strings.Replace(src, monthLabel, monthValues[i], -1)
 				break
 			}
 		}
+		fmt.Println(dest)
 	}
 }
